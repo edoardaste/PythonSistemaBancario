@@ -1,11 +1,15 @@
 class Cliente:
-    def __init__(self, nome, data_nascimento, endereco, cpf):
-        self.nome = nome
-        self.data_nascimento = data_nascimento
+    def __init__(self, endereco):
         self.endereco = endereco
-        self.cpf = cpf
+        self.contas = []
         
-    def valida_cpf(self, cpf):
-         return self.cpf.isdigit()
+    def realizar_transacao(self, conta, transacao):
+         transacao.registrar(conta)
+
+    
+    def adicionar_conta(self, conta):
+         self.contas.append(conta)
+         
+    
 
         

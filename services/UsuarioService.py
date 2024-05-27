@@ -1,4 +1,5 @@
 from model.Cliente import Cliente
+from model.PessoaFisica import PessoaFisica
 
 def CriarUsuario(clientes):
   
@@ -12,11 +13,11 @@ def CriarUsuario(clientes):
   data_nascimento = input("Informe a data de nascimento (dd-mm-aaaa): ")
   endereco = input("Informe o endereço (logradouro, nro - bairro - cidade/sigla estado): ")
   
-  cliente = Cliente(nome, data_nascimento, endereco, cpf)
+  cliente = PessoaFisica(nome, data_nascimento, endereco, cpf)
   
   clientes.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco})
   
-  return "Usuario criado"
+  print("Usuario criado")
     
     
 def filtrar_usuario(cpf, clientes):

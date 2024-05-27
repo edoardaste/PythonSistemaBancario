@@ -1,11 +1,13 @@
+from model.Conta import Conta
 from services.UsuarioService import filtrar_usuario
 
-def ContaCorrenteService(agencia, conta, usuario): 
+def ContaCorrenteService(contas, numero, usuario): 
+    conta = Conta(usuario, numero)
     cpf = input(print("Informe o CPF do usuário: "))
     cliente = filtrar_usuario(cpf, usuario)
  
     if cliente:
         print("Conta Criada com sucesso! ")
-        return {"agencia": agencia, "conta": conta, "usuario": usuario}
+        return {"conta": conta, "usuario": usuario}
     
 print("Usuário não encontrado!!")
