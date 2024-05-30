@@ -1,10 +1,15 @@
 #positional only
 
-def deposito(valor, saldo):
-    
-        if valor > 0:
-            saldo += valor 
-            print("Deposito Realizado!")
+from model.Deposito import Deposito
+from services.UsuarioService import filtrar_usuario
 
-        else:
-            print("Valor não permitido!")
+
+def depositar(cliente):
+    cpf = input("Informe o CPF do cliente: ")
+    cliente = filtrar_usuario(cpf, cliente)
+
+    if cliente:
+        valor = float(input("Informe o valor do depósito: "))
+        transacao = Deposito(valor)
+
+    

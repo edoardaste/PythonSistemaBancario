@@ -1,9 +1,9 @@
-from services.DepositarService import deposito
-from services.SaqueService import sacar
+
+from services.ContaService import ContaService
+from services.DepositarService import depositar
 from services.ExtratoService import ExtratoService
 from services.UsuarioService import CriarUsuario, filtrar_usuario
-from services.ContaService import ContaCorrenteService
-from model.ContaCorrente import ContaCorrente
+
 
 
 menu = """
@@ -25,12 +25,11 @@ while True:
     opcao = input(menu)
     
     if opcao == "d":
-        valor = float(input("Informe o valor do deposito: "))
-        print(deposito(valor, saldo))
+        print(depositar(usuario))
 
     elif opcao == "s":
         valor = float(input("Informe o valor do saque: "))
-        sacar(valor=valor, saldo=saldo)
+        ContaService.sacar(usuario)
 
     elif opcao == "e":
         ExtratoService(saldo)
@@ -40,7 +39,7 @@ while True:
         
     elif opcao == "c":
         numero_conta = len(contas) + 1
-        verifica_conta = ContaCorrenteService(contas, numero_conta, usuario)
+        verifica_conta = ContaService.ContaCorrenteService(contas, numero_conta, usuario)
         
         if verifica_conta:
             contas.append(verifica_conta)

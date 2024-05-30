@@ -6,6 +6,13 @@ class ContaCorrente(Conta):
         super().__init__(numero, cliente)
         self.limite = limite
         self.limite_saque = limite_saque
+
+    def __str__(self):
+        return f"""\
+            Agência:\t{self.agencia}
+            C/C:\t\t{self.numero}
+            Titular:\t{self.cliente.nome}
+        """
         
     
         
